@@ -1,0 +1,770 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa; /* Fallback */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    overflow-x: hidden;
+}
+
+/* Snow Animation */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: #fff;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 56px;
+    font-weight: bold;
+    color: #232f3e;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: -1px;
+}
+
+.greeting {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.shortcuts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-bottom: 30px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shortcut-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    min-height: 85px;
+    text-align: center;
+    flex-direction: row;
+}
+
+.shortcut-btn:hover {
+    border-color: #ff9900;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.25);
+    color: #ff9900;
+}
+
+.shortcut-icon {
+    margin-right: 12px;
+    margin-bottom: 0;
+    font-size: 22px;
+    display: inline-block;
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.dropdown-btn {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dropdown-btn .shortcut-icon {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.dropdown-arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-container.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-container.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-container.active .dropdown-btn {
+    border-radius: 12px 12px 0 0;
+    border-color: #ff9900;
+    color: #ff9900;
+    z-index: 1002;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #ff9900;
+    padding-left: 20px;
+}
+
+.dropdown-icon {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Eva Button Styles */
+.eva-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.eva-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff9900 0%, #ff7700 100%);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+}
+
+.eva-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    background: linear-gradient(135deg, #ffaa00 0%, #ff8800 100%);
+}
+
+.eva-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.eva-icon {
+    font-size: 24px;
+    margin-bottom: -2px;
+}
+
+.eva-text {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Meeting Button Styles */
+.calendar-button {
+    position: fixed;
+    bottom: 130px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.calendar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+}
+
+.calendar-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
+    background: linear-gradient(135deg, #5a95f5 0%, #4285f4 100%);
+}
+
+.calendar-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.calendar-icon {
+    font-size: 24px;
+    margin-bottom: -2px;
+}
+
+.calendar-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1400px) {
+    .shortcuts {
+        max-width: 1200px;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .shortcuts {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        max-width: 1000px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .shortcuts {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        max-width: 800px;
+    }
+    
+    .logo {
+        font-size: 48px;
+    }
+    
+    .greeting {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 40px;
+    }
+    
+    .greeting {
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+    
+    .shortcuts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 600px;
+    }
+    
+    .shortcut-btn {
+        padding: 18px 12px;
+        font-size: 14px;
+        min-height: 75px;
+    }
+
+    .shortcut-icon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .dropdown-item {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+    /* Responsive adjustments for Eva button */
+    .eva-button {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .eva-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+    
+    .eva-icon {
+        font-size: 20px;
+    }
+    
+    .eva-text {
+        font-size: 10px;
+    }
+
+    /* Responsive adjustments for Meeting button */
+    .calendar-button {
+        bottom: 110px;
+        right: 20px;
+    }
+    
+    .calendar-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+    
+    .calendar-icon {
+        font-size: 20px;
+    }
+    
+    .calendar-text {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+    
+    .shortcuts {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .shortcut-btn {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 16px 14px;
+        min-height: 65px;
+    }
+    
+    .shortcut-icon {
+        margin-bottom: 0;
+        margin-right: 12px;
+        font-size: 18px;
+    }
+    
+    .logo {
+        font-size: 36px;
+    }
+    
+    .greeting {
+        font-size: 15px;
+    }
+
+    /* Responsive adjustments for Eva button */
+    .eva-button {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .eva-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .eva-icon {
+        font-size: 18px;
+    }
+    
+    .eva-text {
+        font-size: 9px;
+    }
+
+    /* Responsive adjustments for Meeting button */
+    .calendar-button {
+        bottom: 90px;
+        right: 15px;
+    }
+    
+    .calendar-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .calendar-icon {
+        font-size: 18px;
+    }
+    
+    .calendar-text {
+        font-size: 9px;
+    }
+}
+/* Oncall Button Styles - Above Meeting Button */
+.oncall-button {
+    position: fixed;
+    bottom: 230px;  /* Higher than meeting button (130px) */
+    right: 30px;
+    z-index: 1000;
+}
+
+.oncall-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+}
+
+.oncall-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    background: linear-gradient(135deg, #ec7063 0%, #e74c3c 100%);
+}
+
+.oncall-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.oncall-icon {
+    font-size: 24px;
+    margin-bottom: -2px;
+}
+
+.oncall-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Oncall Button Styles - Above Meeting Button */
+.oncall-button {
+    position: fixed;
+    bottom: 230px;  /* Higher than meeting button (130px) */
+    right: 30px;
+    z-index: 1000;
+}
+
+.oncall-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);  /* Yellow gradient */
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);  /* Yellow shadow */
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+}
+
+.oncall-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.4);  /* Yellow hover shadow */
+    background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);  /* Lighter yellow on hover */
+}
+
+.oncall-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.oncall-icon {
+    font-size: 24px;
+    margin-bottom: -2px;
+}
+
+.oncall-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Oncall Button Styles - Above Meeting Button */
+.oncall-button {
+    position: fixed;
+    bottom: 230px;  /* Higher than meeting button (130px) */
+    right: 30px;
+    z-index: 1000;
+}
+
+.oncall-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);  /* Yellow gradient */
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);  /* Yellow shadow */
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+}
+
+.oncall-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.4);  /* Yellow hover shadow */
+    background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);  /* Lighter yellow on hover */
+}
+
+.oncall-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.oncall-icon {
+    font-size: 24px;
+    margin-bottom: -2px;
+}
+
+.oncall-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments for Oncall button */
+@media (max-width: 768px) {
+    .oncall-button {
+        bottom: 200px;  /* Above meeting button (110px) */
+        right: 20px;
+    }
+    
+    .oncall-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+    
+    .oncall-icon {
+        font-size: 20px;
+    }
+    
+    .oncall-text {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .oncall-button {
+        bottom: 165px;  /* Above meeting button (90px) */
+        right: 15px;
+    }
+    
+    .oncall-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .oncall-icon {
+        font-size: 18px;
+    }
+    
+    .oncall-text {
+        font-size: 9px;
+    }
+}
+
+/* Emergency Button Styles - Upper Left */
+.emergency-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.emergency-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    flex-direction: column;
+    gap: 2px;
+    border: 3px solid white;
+    animation: pulse 2s infinite;
+}
+
+.emergency-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+    background: linear-gradient(135deg, #ec7063 0%, #e74c3c 100%);
+    animation: none;
+}
+
+.emergency-btn:active {
+    transform: scale(1.05) translateY(0px);
+}
+
+.emergency-icon {
+    font-size: 28px;
+    margin-bottom: -2px;
+}
+
+.emergency-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Pulse animation for emergency button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(231, 76, 60, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+}
+
+/* Responsive adjustments for Emergency button */
+@media (max-width: 768px) {
+    .emergency-button {
+        top: 20px;
+        left: 20px;
+    }
+    
+    .emergency-btn {
+        width: 75px;
+        height: 75px;
+        font-size: 12px;
+    }
+    
+    .emergency-icon {
+        font-size: 24px;
+    }
+    
+    .emergency-text {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .emergency-button {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .emergency-btn {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .emergency-icon {
+        font-size: 20px;
+    }
+    
+    .emergency-text {
+        font-size: 9px;
+    }
+}
+
+
+

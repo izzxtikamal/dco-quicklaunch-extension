@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Launch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Snow container -->
+    <div class="snow-container"></div>
+    
+    <div class="container">
+        <div class="logo">🚀 Quick Launch</div>
+        <div class="greeting">Your Amazon Internal Tools Hub</div>
+        
+        <div class="shortcuts">
+            <!-- Importants -->
+            <a href="https://myday-website-sin.aka.corp.amazon.com/dashboard" class="shortcut-btn" title="Don't forget to start your task shift!">
+                <span class="shortcut-icon">📋</span>
+                MyDay
+            </a>
+
+            <a href="https://t.corp.amazon.com/" class="shortcut-btn" title="Ticketing system">
+                <span class="shortcut-icon">🎫</span>
+                T-Corp
+            </a>
+
+            <a href="https://outlook.office.com/mail/" class="shortcut-btn" title="Email" >
+                <span class="shortcut-icon">📫</span>
+                Outlook
+            </a>
+
+            <!-- A -->
+            <a href="https://atoz.amazon.work/learn/home" class="shortcut-btn" title="Learning management system for training and certifications">
+                <span class="shortcut-icon">🎓</span>
+                Amazon Learn
+            </a>
+            
+            <a href="https://optics.datacenter.security.aws.a2z.com/#/inspect-badge" class="shortcut-btn" title="Data center security badge inspection tool">
+                <span class="shortcut-icon">🔍</span>
+                Amazon Optics
+            </a>
+            
+            <a href="https://atoz.amazon.work/home" class="shortcut-btn" title="Employee portal for HR, payroll, and benefits">
+                <span class="shortcut-icon">🏢</span>
+                AtoZ
+            </a>
+            
+            <a href="https://apac-aws.ehs-amazon.com/home" class="shortcut-btn" title="Environmental Health & Safety portal">
+                <span class="shortcut-icon">🏠</span>
+                Austin
+            </a>
+            
+            <!-- B -->
+            <div class="dropdown-container">
+                <button class="shortcut-btn dropdown-btn" type="button" title="Access Boost Electron workflows and tools">
+                    <span class="shortcut-icon">⚡</span>
+                    Boost Electron
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="https://app.boost.aws.a2z.com/platform/work-requests/create/arn%3Aaws%3Aboost%3A012804863341%3Aworkrequest-template%2FDataCenter%2FRed-Zone-Exit%2F1.0/workflow?priority=3&workflowProperties=%7B%7D&autoSubmit=false" class="dropdown-item" title="Building Commissioning Tool - Red Zone Exit">
+                        <span class="dropdown-icon">🔴</span>
+                        BCT
+                    </a>
+                    <a href="https://app.boost.aws.a2z.com/platform/work-requests/create/arn%3Aaws%3Aboost%3A012804863341%3Aworkrequest-template%2FRack%2FRackInstallPrep%2F1.0/workflow" class="dropdown-item" title="Create pre-installation workflow">
+                        <span class="dropdown-icon">🔧</span>
+                        Pre Workflow
+                    </a>
+                    <a href="https://app.boost.aws.a2z.com/platform/work-requests/create/arn%3Aaws%3Aboost%3A012804863341%3Aworkrequest-template%2FRack%2FRackInstallPrep%2F1.0/workflow" class="dropdown-item" title="Perform rack correction scanning">
+                        <span class="dropdown-icon">📊</span>
+                        Rack Correction Scan
+                    </a>
+                    <a href="https://app.boost.aws.a2z.com/platform/work-requests?view=All&Status=ACCEPTED%2CSUSPENDED" class="dropdown-item" title="View and manage work requests">
+                        <span class="dropdown-icon">📋</span>
+                        Work Request
+                    </a>
+                </div>
+            </div>
+            
+            <!-- C -->
+            <a href="https://cloudforge-build.amazon.com/" class="shortcut-btn" title="Data center capacity planning and automated systems">
+                <span class="shortcut-icon">☁️</span>
+                Cloudforge
+            </a>
+
+            <!-- D -->
+            <a href="https://kul.dreamscape.prod.console.hweng.aws.dev/sessions" class="shortcut-btn" title="Hardware engineering console and session management">
+                <span class="shortcut-icon">🌙</span>
+                Dreamscape
+            </a>
+            
+            <!-- E -->
+            <a href="https://eps-portal-aws.aka.amazon.com/#/" class="shortcut-btn" title="EC2 provisioning and management portal">
+                <span class="shortcut-icon">☁️</span>
+                EC2 Provisioning
+            </a>
+            
+            <!-- I -->
+            <a href="https://infrastructure.amazon.com/automation/hostDetails.cgi" class="shortcut-btn" title="Infrastructure automation and host details management">
+                <span class="shortcut-icon">🏢</span>
+                Infrastructure
+            </a>
+            
+            <!-- L -->
+            <a href="https://aws.argo.ocean-wave.aws.a2z.com/shipments/lmdp/planned_deliveries" class="shortcut-btn" title="Last Mile Delivery Planning for shipments">
+                <span class="shortcut-icon">🚚</span>
+                LMDP
+            </a>
+            
+            <!-- M -->
+            <a href="https://rzp.dcsa.aws.dev/" class="shortcut-btn" title="Data center automation and monitoring platform">
+                <span class="shortcut-icon">🐍</span>
+                Mamba
+            </a>
+            
+            <a href="https://mobility.amazon.com/" class="shortcut-btn" title="Internal logistics and inventory management tool">
+                <span class="shortcut-icon">📦</span>
+                Mobility
+            </a>
+            
+            <!-- N -->
+            <a href="https://nsm-corp.amazon.com/" class="shortcut-btn" title="Network Service Management portal">
+                <span class="shortcut-icon">🌐</span>
+                NSM
+            </a>
+            
+            <!-- P -->
+            <a href="https://phonetool.amazon.com/" class="shortcut-btn" title="Employee directory and contact information" >
+                <span class="shortcut-icon">📱</span>
+                Phone Tool
+            </a>
+            
+            <a href="https://nretools.amazon.com/platoon/" class="shortcut-btn" title="Network operations ticketing and escalation tool">
+                <span class="shortcut-icon">⚔️</span>
+                Platoon
+            </a>
+            
+            <!-- Q -->
+            <a href="https://quip-amazon.com/" class="shortcut-btn" title="Collaborative document editing and team communication">
+                <span class="shortcut-icon">📝</span>
+                Quip
+            </a>
+            
+            <!-- R -->
+            <a href="https://aws.argo.ocean-wave.aws.a2z.com/dc-rack-provisioning/rack-allocation-tool" class="shortcut-btn" title="Rack Allocation Tool for data center provisioning">
+                <span class="shortcut-icon">🔧</span>
+                RATSv2
+            </a>
+            
+            <!-- S -->
+            <a href="https://tempo.ciat.aws.dev/shift-overview-lite" class="shortcut-btn" title="View and manage shift utilization metrics">
+                <span class="shortcut-icon">⏰</span>
+                Shift Utilization
+            </a>
+            
+            <a href="https://amazon.enterprise.slack.com/" class="shortcut-btn" title="Team messaging and collaboration platform">
+                <span class="shortcut-icon">💬</span>
+                Slack
+            </a>
+            
+            <!-- T -->
+            <div class="dropdown-container">
+                <button class="shortcut-btn dropdown-btn" type="button" title="Collection of tools for data center operations">
+                    <span class="shortcut-icon">🍺</span>
+                    Tavern
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="https://tavern.corp.amazon.com/altbier" class="dropdown-item" title="Host State management tool">
+                        <span class="dropdown-icon">🍺</span>
+                        Altbier
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/dunkel" class="dropdown-item" title="Recheck Console IP tool">
+                        <span class="dropdown-icon">🌑</span>
+                        Dunkel
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/gose" class="dropdown-item" title="Server manuals and documentation">
+                        <span class="dropdown-icon">📖</span>
+                        Gose
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/happoshu#search" class="dropdown-item" title="Network device location search">
+                        <span class="dropdown-icon">🔍</span>
+                        Happoshu
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/ipa" class="dropdown-item" title="Parts in BOM lookup">
+                        <span class="dropdown-icon">🔧</span>
+                        IPA
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/lambic" class="dropdown-item" title="Part history tracking">
+                        <span class="dropdown-icon">📜</span>
+                        Lambic
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/quad" class="dropdown-item" title="Agile firmware management">
+                        <span class="dropdown-icon">⚡</span>
+                        Quad
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/sour" class="dropdown-item" title="Execute Carbon Actions">
+                        <span class="dropdown-icon">🍋</span>
+                        Sour
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/stout" class="dropdown-item" title="Network parts management">
+                        <span class="dropdown-icon">🌐</span>
+                        Stout
+                    </a>
+                    <a href="https://tavern.corp.amazon.com/sujamma" class="dropdown-item" title="Automated ticket creation">
+                        <span class="dropdown-icon">🎫</span>
+                        Sujamma
+                    </a>
+                </div>
+            </div>
+            
+            <a href="https://nretools.amazon.com/topgun/" class="shortcut-btn" title="Network device status and maintenance tool">
+                <span class="shortcut-icon">🎯</span>
+                Top Gun
+            </a>
+            
+            <a href="https://aws.argo.ocean-wave.aws.a2z.com/townsend/" class="shortcut-btn" title="Product lifecycle management for infrastructure">
+                <span class="shortcut-icon">🏗️</span>
+                Townsend
+            </a>
+            
+            <!-- U -->
+            <a href="https://aws.argo.ocean-wave.aws.a2z.com/inventory-receive/receive" class="shortcut-btn" title="Unified receiving tool for RMA and inventory">
+                <span class="shortcut-icon">📥</span>
+                Unified Receive (RMA)
+            </a>
+            
+            <!-- V -->
+            <a href="https://portal.vetting.aws.dev/iad/whereismyserver" class="shortcut-btn" title="Server vetting status and location tracking">
+                <span class="shortcut-icon">✅</span>
+                Vetting
+            </a>
+            
+            <!-- W -->
+            <div class="dropdown-container">
+                <button class="shortcut-btn dropdown-btn" type="button" title="Internal Amazon wiki and documentation">
+                    <span class="shortcut-icon">📚</span>
+                    Wiki
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="https://w.amazon.com/" class="dropdown-item" title="Main Amazon wiki homepage">
+                        <span class="dropdown-icon">🏠</span>
+                        Main Page Wiki
+                    </a>
+                    <a href="https://w.amazon.com/bin/view/KUL_InfraOps/" class="dropdown-item" title="KUL Infra Ops wiki">
+                        <span class="dropdown-icon">🏗️</span>
+                        KUL Infra Ops
+                    </a>
+                    <a href="https://w.amazon.com/bin/view/KUL_InfraOps/DCO/Operational_Excellence/DCO_New_Hire_Toolkit/" class="dropdown-item" title="Resources and guides for new hires">
+                        <span class="dropdown-icon">🎒</span>
+                        New Hire Toolkit
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--Oncall-->
+        <div class="oncall-button">
+            <a href="https://oncall.corp.amazon.com/#/calendar" class="oncall-btn" title="On-call schedule and rotation management"
+                <span class="oncall-icon">📞</span>
+                <span class="oncall-text">Oncall</span>
+            </a>
+        </div>
+
+        <!-- Meeting Button -->
+        <div class="calendar-button">
+            <a href="https://meetings.amazon.com/#" class="calendar-btn" title="Schedule and manage meetings">
+                <span class="calendar-icon">📅</span>
+                <span class="calendar-text">Meeting</span>
+            </a>
+        </div>
+
+        <!-- Eva Button -->
+        <div class="eva-button">
+            <a href="https://eva.aws.dev" class="eva-btn" title="Eva - Your intelligent data center assistant">
+                <span class="eva-icon">🤖</span>
+                <span class="eva-text">Eva</span>
+            </a>
+        </div>
+
+        <!-- Emergency Escalation Button -->
+        <div class="emergency-button">
+            <a href="https://w.amazon.com/bin/view/KUL_InfraOps/Escalation_Contacts/" class="emergency-btn" title="KUL Emergency Escalation Contacts - Use for urgent issues requiring immediate attention">
+                <span class="emergency-icon">🚨</span>
+                <span class="emergency-text">Emergency</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
