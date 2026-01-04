@@ -65,55 +65,112 @@ function showUpdateNotification(version, downloadUrl, releaseUrl) {
         <div style="
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 16px;
+            margin: 10px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 10000;
-            max-width: 300px;
+            z-index: 999999;
+            max-width: 350px;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: slideInFromRight 0.5s ease-out;
         ">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 18px;">🚀</span>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="font-size: 24px;">🚀</span>
                 <div>
-                    <strong>Update Available!</strong><br>
-                    <span style="opacity: 0.9;">Version ${version} for ${browserName}</span>
+                    <div style="font-weight: bold; font-size: 16px;">Update Available!</div>
+                    <div style="opacity: 0.9; font-size: 14px;">Version ${version} for ${browserName}</div>
                 </div>
             </div>
-            <div style="margin-top: 8px; display: flex; gap: 8px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <a href="${downloadUrl}" target="_blank" style="
-                    background: rgba(255,255,255,0.2);
+                    background: rgba(255,255,255,0.25);
                     color: white;
-                    padding: 6px 12px;
-                    border-radius: 4px;
+                    padding: 8px 16px;
+                    border-radius: 6px;
                     text-decoration: none;
-                    font-size: 12px;
+                    font-size: 13px;
+                    font-weight: 600;
                     border: 1px solid rgba(255,255,255,0.3);
-                ">Download ${browserName} Update</a>
+                    transition: all 0.2s ease;
+                " onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">
+                    📥 Download ${browserName} Update
+                </a>
                 <a href="${releaseUrl}" target="_blank" style="
                     background: transparent;
                     color: white;
-                    padding: 6px 12px;
-                    border-radius: 4px;
+                    padding: 8px 16px;
+                    border-radius: 6px;
                     text-decoration: none;
-                    font-size: 12px;
-                    border: 1px solid rgba(255,255,255,0.3);
-                ">Release Notes</a>
+                    font-size: 13px;
+                    font-weight: 600;
+                    border: 1px solid rgba(255,255,255,0.4);
+                    transition: all 0.2s ease;
+                " onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
+                    📋 Release Notes
+                </a>
+            </div>
+            <div style="
+                position: absolute;
+                top: 8px;
+                right: 12px;
+                cursor: pointer;
+                font-size: 18px;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+            " onclick="this.parentElement.parentElement.remove()" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                ✕
             </div>
         </div>
     `;
     
+    // Add CSS animation if not already present
+    if (!document.getElementById('update-notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'update-notification-styles';
+        style.textContent = `
+            @keyframes slideInFromRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutToRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
     document.body.appendChild(notification);
     
-    // Auto-hide after 10 seconds
+    console.log('🚀 Update notification displayed for all users!');
+    
+    // Auto-hide after 15 seconds with slide-out animation
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.remove();
+            notification.style.animation = 'slideOutToRight 0.5s ease-out';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 500);
         }
-    }, 10000);
+    }, 15000);
 }
 
 function isNewerVersion(latest, current) {
@@ -372,3 +429,4 @@ initEmergencyButton(); // Add this line
         initExtension();
     }
 })();
+
