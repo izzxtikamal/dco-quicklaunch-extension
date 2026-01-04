@@ -1,5 +1,5 @@
 // GitHub auto-update configuration
-const GITHUB_REPO = 'yourusername/dco-quicklaunch-extension'; // Replace 'yourusername' with your actual GitHub username
+const GITHUB_REPO = 'izzxtikamal/dco-quicklaunch-extension'; // Replace 'yourusername' with your actual GitHub username
 const UPDATE_CHECK_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 
 // Detect browser type
@@ -379,3 +379,4 @@ initEmergencyButton(); // Add this line
         initExtension();
     }
 })();
+
