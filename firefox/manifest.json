@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "DCO QuickLaunch Extension",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Quick access to essential DCO tools in a 5x6 grid layout with auto-update functionality",
     "chrome_url_overrides": {
         "newtab": "newtab.html"
@@ -23,3 +23,4 @@
         "default_title": "DCO QuickLaunch"
     }
 }
+
